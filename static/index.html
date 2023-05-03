@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UserData Contract</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <button id ="ConnectButton">Connect</button>
+	<div class="header">
+		<h1>UserData Contract</h1>
+		<nav>
+			<ul>
+				<li><a href="set-user-data.html">Set User Data</a></li>
+				<li><a href="verify-age.html">Verify Age</a></li>
+				<li><a href="verify-first-name.html">Verify First Name</a></li>
+				<li><a href="verify-last-name.html">Verify Last Name</a></li>
+				<li><a href="request-verification.html">Request Verification</a></li>
+                <li><a href="verify-zipcode.html">Verify Zipcode</a></li>
+				<li><a href="approve-request.html">approve-request</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="content">
+		<p>Welcome to the UserData contract. Please select a function from the navigation bar above.</p>
+	</div>
+    <script src="app.js" type="module">
+
+window.addEventListener('load', function() {
+    const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+   // CheckMetamaskConnection();
+    //displayCertificates();
+    // Use the web3 object here
+  });
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+
+            
+
+    
+</script>
+</body>
+</html>

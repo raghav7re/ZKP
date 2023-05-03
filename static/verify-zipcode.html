@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Zipcode</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.5/dist/web3.min.js"></script>
+    <script src="app.js" type ="module">
+         window.addEventListener('load', function() {
+    const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+    
+    //displayCertificates();
+    // Use the web3 object here
+  });
+    </script>
+    <!-- <script type="text/javascript">
+        window.addEventListener('load', async () => {
+            if (typeof web3 !== 'undefined') {
+                // Use existing web3 provider (e.g. Metamask)
+                window.web3 = new Web3(web3.currentProvider);
+            } else {
+                // Create a new web3 provider (e.g. for local development)
+                window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+            }
+
+            // const contractAddress = 'CONTRACT_ADDRESS'; // Replace with the address of the UserData contract
+            // const contractAbi = CONTRACT_ABI; // Replace with the ABI of the UserData contract
+
+            // const userDataContract = new web3.eth.Contract(contractAbi, contractAddress);
+
+            const button = document.getElementById('verify-button');
+            const zipcodeInput = document.getElementById('zipcode-input');
+            const messageElement = document.getElementById('message');
+
+            button.addEventListener('click', async () => {
+                //const userAddress = 'USER_ADDRESS'; // Replace with the address of the user you want to verify
+
+                // Call the smart contract function to verify the user's zipcode
+                try {
+                    const result = await rcontract.methods.verifyZipcode(userAddress, zipcodeInput.value).send({ from: web3.eth.defaultAccount });
+                    messageElement.innerText = 'Verification successful';
+                } catch (error) {
+                    console.error(error);
+                    messageElement.innerText = 'Verification failed';
+                }
+            });
+        }); -->
+    </script>
+</head>
+<body>
+    <button id ="ConnectButton">Connect</button>
+    <h1>Verify Zipcode</h1>
+    <p>Enter the user's zipcode to verify:</p>
+    <input type="number" id="zipcode-input">
+    <button id="verify-buttonz">Verify</button>
+    <p id="message"></p>
+</body>
+</html>

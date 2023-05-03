@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify User Age</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+</head>
+<body>
+    <button id ="ConnectButton">Connect</button>
+    <script src="app.js" type="module">
+        window.addEventListener('load', function() {
+            const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+          //  CheckMetamaskConnection();
+            //displayCertificates();
+            // Use the web3 object here
+          });
+            </script>
+                <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+        
+                    
+        </script>
+
+	<div class="header">
+		<h1>Set User Data</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="set-user-data.html">Verify Age</a></li>
+				<li><a href="verify-first-name.html">Verify First Name</a></li>
+				<li><a href="verify-last-name.html">Verify Last Name</a></li>
+				<li><a href="request-verification.html">Request Verification</a></li>
+			</ul>
+		</nav>
+	</div>
+    <h1>Verify User Age</h1>
+    <form id="verify-age-form">
+        <label for="user-address">User Address:</label>
+        <input type="text" id="user-address" name="user-address"><br><br>
+        <label for="age">Minimum Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+    </form>
+    <button id="verifyage" type="submit">Verify Age</button>
+    <br>
+    <div id="result"></div>
+    <script>
+        // const contractAddress = "CONTRACT_ADDRESS";
+        // const contractAbi = ABI; // Replace with the ABI of the contract
+        // const provider = new Web3.providers.HttpProvider("HTTP://127.0.0.1:8545"); // Replace with your Infura project ID
+
+       // const web3 = new Web3("HTTP://127.0.0.1:8545");
+        //const contract = new web3.eth.Contract(contractAbi, contractAddress);
+
+        // const form = document.getElementById("verify-age-form");
+        // const resultDiv = document.getElementById("result");
+
+        // form.addEventListener("submit", async (event) => {
+        //     event.preventDefault();
+        //     const userAddress = event.target.elements["user-address"].value;
+        //     const age = event.target.elements["age"].value;
+        //     try {
+        //         const result = await rcontract.methods.verifyAge(web3.eth.tochecksumAddress(userAddress), age).call();
+        //         if (result) {
+        //             resultDiv.textContent = "User is old enough";
+        //         } else {
+        //             resultDiv.textContent = "User is not old enough";
+        //         }
+        //     } catch (error) {
+        //         console.error(error);
+        //         resultDiv.textContent = "An error occurred: " + error.message;
+        //     }
+        // });
+    </script>
+</body>
+</html>
