@@ -67,29 +67,7 @@ qel.addEventListener('click', async () => {
     });
 });
 
-async function setUserData() {
-  
-  }
 
-
-
-
-  // const button = document.getElementById('verify-buttonz');
-  // const zipcodeInput = document.getElementById('zipcode-input');
-  // const messageElement = document.getElementById('message');
-
-  // button.addEventListener('click', async () => {
-  //     //const userAddress = 'USER_ADDRESS'; // Replace with the address of the user you want to verify
-
-  //     // Call the smart contract function to verify the user's zipcode
-  //     try {
-  //         const result = await rcontract.methods.verifyZipcode(userAddress, zipcodeInput.value).send({ from: web3.eth.defaultAccount });
-  //         messageElement.innerText = 'Verification successful';
-  //     } catch (error) {
-  //         console.error(error);
-  //         messageElement.innerText = 'Verification failed';
-  //     }
-  // });
 
 
 
@@ -107,13 +85,14 @@ ael.addEventListener('click', async () => {
   const account = accounts[0];
 
   const requester = document.getElementById("requester").value;
-            rcontract.methods.approveVerification(requester).send({from: account}, function(error, result) {
+            const qwe= await rcontract.methods.approveVerification(requester).send({from: account}, function(error, result) {
                 if (!error) {
                     document.getElementById("result").innerHTML = "Request approved!";
                 } else {
                     console.error(error);
                 }
-            });
+              });
+              console.log(qwe);
 });
 
 
@@ -137,6 +116,7 @@ vel.addEventListener('click', async () => {
       const age = document.getElementById("age").value;
       try {
           const result = await rcontract.methods.verifyAge(web3.utils.toChecksumAddress(userAddress), age).call();
+          console.log(result);
           if (result) {
               resultDiv.textContent = "User is old enough";
           } else {
@@ -148,3 +128,80 @@ vel.addEventListener('click', async () => {
       }
 
 });
+
+
+const fel =document.getElementById('verifyfirstname');
+if (fel)
+fel.addEventListener('click', async () => { 
+
+
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+  const account = accounts[0];
+
+  var userAddress = document.getElementById("user-address").value;
+  var firstName = document.getElementById("first-name").value;
+  
+  // Call contract function to verify first name
+  const result = await rcontract.methods.verifyFirstName(userAddress, firstName).send({from: account})
+  .on('transactionHash', function(hash){
+    console.log("Transaction Hash: " + hash);
+  })
+  .on('receipt', function(receipt){
+    console.log("Receipt: " + receipt);
+    alert("First name verified!");
+  })
+  .on('error', function(error){
+    console.error(error);
+    alert("An error occurred while verifying first name.");
+  });
+  console.log(result);
+
+});
+
+const form = document.getElementById("verify-last-name");
+            form.addEventListener("click", async (event) => {
+                event.preventDefault();
+                const lastName = document.getElementById("lastName").value;
+                const userAddress = document.getElementById("userAddress").value;
+
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                const account = accounts[0];
+              
+
+                // Call the verifyLastName function with the provided parameters
+               const result= await rcontract.methods.verifyLastName(web3.utils.toChecksumAddress(userAddress), lastName).send({ from: account })
+                    .on("receipt", (receipt) => {
+                        console.log(receipt);
+                        alert("Last name verified successfully!");
+                    })
+                    .on("error", (error) => {
+                        console.error(error);
+                        alert("Error verifying last name.");
+                    });
+                    console.log(result);
+            });
+
+
+  const button = document.getElementById('verify-buttonz');
+  const zipcodeInput = document.getElementById('zipcode-input');
+  const messageElement = document.getElementById('message');
+
+  button.addEventListener('click', async () => {
+      //const userAddress = 'USER_ADDRESS'; // Replace with the address of the user you want to verify
+
+      // Call the smart contract function to verify the user's zipcode
+
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+  const account = accounts[0];
+
+      try {
+          const result = await rcontract.methods.verifyZipcode(web3.eth.tochecksumAddress(userAddress), zipcodeInput.value).send({ from: account });
+          console.log(result);
+          messageElement.innerText = 'Verification successful';
+      } catch (error) {
+          console.error(error);
+          messageElement.innerText = 'Verification failed';
+      }
+  });
+
+
